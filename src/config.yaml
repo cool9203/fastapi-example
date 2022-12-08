@@ -1,0 +1,11 @@
+# format: key: value
+
+# array example
+# key: value
+#   - arr0
+#   - arr1
+
+# dict example
+# key: value
+#   dict-name1: value1
+#   dict-name2: value2
