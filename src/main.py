@@ -2,6 +2,7 @@
 # coding: utf-8
 
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
 import utils
@@ -11,6 +12,16 @@ logger = utils.get_logger(logger_name=__name__)
 
 app = FastAPI()
 import lib
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/rapidoc", response_class=HTMLResponse, include_in_schema=False)
